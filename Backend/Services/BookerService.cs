@@ -2,7 +2,6 @@ using System.Threading.Tasks;
 using Grpc.Core;
 using Microsoft.Extensions.Logging;
 
-
 namespace HotelService
 {
 	public class BookerService : Booker.BookerBase
