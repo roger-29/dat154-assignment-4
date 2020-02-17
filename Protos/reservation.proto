@@ -1,0 +1,26 @@
+syntax = "proto3";
+package hotel_service;
+import "google/protobuf/timestamp.proto";
+
+option csharp_namespace = "HotelService";
+
+// Booking service definition
+service Booker {
+  // Sends a Reservation in response to a request
+  rpc RequestRoom(Reservation) returns (Reservation);
+}
+
+message Room {
+  string id = 1;
+  int32 number = 2;
+  int32 beds = 3;
+  int32 size = 4;
+  bool available = 5;
+}
+
+message Reservation {
+  string id = 1;
+  Room room = 2;
+  google.protobuf.Timestamp date = 5;
+  string customerId = 4;
+}
