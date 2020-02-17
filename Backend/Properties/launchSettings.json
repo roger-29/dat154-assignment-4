@@ -1,6 +1,6 @@
 {
   "profiles": {
-    "hotel-service": {
+    "Backend": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
