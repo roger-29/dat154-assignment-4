@@ -1,0 +1,28 @@
+﻿import React from 'react';
+import * as actions from '../store/actions';
+import { connect } from 'react-redux';
+
+const Room = props => {
+	const handleClick = () => {
+		props.bookRoom(props.room);
+		props.getRooms();
+		props.history.push('/home');
+	}
+
+	return (
+		<li onClick={handleClick} className='collection-item avatar hoverable'>
+			<i className='material-icons circle'>photo</i>
+			<span className='title'>{props.room.price} kr</span>
+			<p>
+				Size: {props.room.roomSize} m²<br/>
+				Number of beds: {props.room.numberOfBeds}
+				
+			</p>
+			<div className='secondary-content black-text'>
+				<i className='material-icons'>room</i>Book
+			</div>
+		</li>
+	)
+}
+
+export default connect(null, actions)(Room);
