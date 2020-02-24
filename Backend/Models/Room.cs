@@ -11,6 +11,5 @@ namespace CustomerWebApp.Models
         public int NumberOfBeds { get; set; }
         public int RoomSize { get; set; }
         public int Price { get; set; }
-        public bool Booked { get; set; }
     }
 }

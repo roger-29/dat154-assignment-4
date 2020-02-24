@@ -11,16 +11,21 @@ service Booker {
 }
 
 message Room {
-  string id = 1;
-  int32 number = 2;
-  int32 beds = 3;
-  int32 size = 4;
+  int32 roomNr = 1;
+  int32 numberOfBeds = 2;
+  int32 roomSize = 3;
+  int32 price = 4;
   bool available = 5;
 }
 
 message Reservation {
-  string id = 1;
-  Room room = 2;
-  google.protobuf.Timestamp date = 5;
-  string customerId = 4;
+  int32 roomNr = 1;
+  int32 userNr = 2;
+  google.protobuf.Timestamp date = 3;
+}
+
+message User {
+  int32 userNr = 1;
+  string email = 2; 
+  string password = 3;
 }
