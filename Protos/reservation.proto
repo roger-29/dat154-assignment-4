@@ -4,28 +4,33 @@ import "google/protobuf/timestamp.proto";
 
 option csharp_namespace = "HotelService";
 
-// Booking service definition
-service Booker {
-  // Sends a Reservation in response to a request
+
+service Booking {
+  // rpc Login(Credentials) returns (User);
   rpc RequestRoom(Reservation) returns (Reservation);
+  rpc GetRooms(Empty) returns (stream Room);
+}
+
+message Empty {
+
 }
 
 message Room {
-  int32 roomNr = 1;
-  int32 numberOfBeds = 2;
-  int32 roomSize = 3;
-  int32 price = 4;
-  bool available = 5;
+  int32 Id = 1;
+  int32 AmountOfBeds = 2;
+  int32 Size = 3;
+  int32 Price = 4;
+  bool Available = 5;
 }
 
 message Reservation {
-  int32 roomNr = 1;
-  int32 userNr = 2;
+  int32 RoomId = 1;
+  int32 UserId = 2;
   google.protobuf.Timestamp date = 3;
 }
 
 message User {
-  int32 userNr = 1;
-  string email = 2; 
-  string password = 3;
+  int32 Id = 1;
+  string Email = 2; 
+  string Password = 3;
 }
