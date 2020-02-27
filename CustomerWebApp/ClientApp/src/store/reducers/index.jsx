@@ -2,7 +2,8 @@
 import thunk from 'redux-thunk';
 import { connectRouter, routerMiddleware } from 'connected-react-router';
 import auth from "./authReducer";
-import rooms from './roomsReducer'
+import rooms from './roomsReducer';
+import booked from './bookedReducer';
 
 export default function configureStore(history) {
     const middleware = [
@@ -13,6 +14,7 @@ export default function configureStore(history) {
     const rootReducer = combineReducers({
         auth,
         rooms,
+        booked,
         router: connectRouter(history)
     });
 

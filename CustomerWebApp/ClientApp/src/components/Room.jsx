@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 const Room = props => {
 	const handleClick = () => {
-		props.bookRoom(props.room);
+		props.bookRoom(props.room, props.auth);
 		props.getRooms();
 		props.history.push('/home');
 	}
@@ -25,4 +25,8 @@ const Room = props => {
 	)
 }
 
-export default connect(null, actions)(Room);
+const mapStateToProps = ({ auth }) => {
+	return { auth };
+};
+
+export default connect(mapStateToProps, actions)(Room);

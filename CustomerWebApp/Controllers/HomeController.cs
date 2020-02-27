@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using CustomerWebApp.Models;
+using HotelService;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -10,7 +10,7 @@ using Microsoft.Extensions.Logging;
 namespace CustomerWebApp.Controllers
 {
     [ApiController]
-    [Route("api/[controller]")]
+    [Route("api/home")]
     public class HomeController : ControllerBase
     {
         private readonly ILogger<HomeController> _logger;
@@ -23,24 +23,15 @@ namespace CustomerWebApp.Controllers
         [HttpGet]
         public IEnumerable<Room> Get()
         {
+            // return all rooms with Avaliable = true;
             return new List<Room> 
             {
-                new Room { RoomNr = 1, NumberOfBeds = 2, RoomSize = 25, Price = 1000},
-                new Room { RoomNr = 2, NumberOfBeds = 2, RoomSize = 35, Price = 1500},
-                new Room { RoomNr = 3, NumberOfBeds = 2, RoomSize = 35, Price = 1500},
-                new Room { RoomNr = 4, NumberOfBeds = 3, RoomSize = 45, Price = 2000},
-                new Room { RoomNr = 5, NumberOfBeds = 3, RoomSize = 60, Price = 3000}
+                new Room { RoomNr = 1, NumberOfBeds = 2, RoomSize = 25, Price = 1000, Available = true},
+                new Room { RoomNr = 2, NumberOfBeds = 2, RoomSize = 35, Price = 1500, Available = true},
+                new Room { RoomNr = 3, NumberOfBeds = 2, RoomSize = 35, Price = 1500, Available = true},
+                new Room { RoomNr = 4, NumberOfBeds = 3, RoomSize = 45, Price = 2000, Available = true},
+                new Room { RoomNr = 5, NumberOfBeds = 3, RoomSize = 60, Price = 3000, Available = true}
             }.ToArray();
-        }
-
-        [HttpPost]
-        public bool Post(Room room)
-        {
-            Console.WriteLine(room.RoomNr);
-            Console.WriteLine(room.NumberOfBeds);
-            Console.WriteLine(room.RoomSize);
-            Console.WriteLine(room.Price);
-            return true;
         }
     }
 }

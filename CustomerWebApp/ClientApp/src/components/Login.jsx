@@ -3,7 +3,11 @@ import { connect } from 'react-redux';
 import * as actions from '../store/actions';
 
 class Login extends React.Component {
-  state = { email: '', password: '' };
+    state = { email: '', password: '' };
+
+    componentDidMount = () => {
+        if (this.props.auth !== 0) this.props.history.push('/home');
+    }
 
   handleChange = e => {
     this.setState({
@@ -17,7 +21,6 @@ class Login extends React.Component {
   };
 
   render() {
-    if (this.props.auth) this.props.history.push('/home');
     return (
       <>
         <div className='container'>

@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import RoomList from './RoomList';
 
 const Home = props => {
-  if (!props.auth) props.history.push('/');
+  if (props.auth === 0) props.history.push('/');
     return (
         <>
             <RoomList history={props.history} />

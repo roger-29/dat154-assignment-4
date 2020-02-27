@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from '../store/actions';
 import Room from './Room';
 
-class Rooms extends React.Component {
+class RoomList extends React.Component {
 	componentDidMount = () => {
 		this.props.getRooms();
 	}
@@ -22,4 +22,4 @@ const mapStateToProps = ({ rooms }) => {
 	return { rooms }
 }
 
-export default connect(mapStateToProps, actions)(Rooms);
+export default connect(mapStateToProps, actions)(RoomList);

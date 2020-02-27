@@ -4,6 +4,7 @@ import Login from './Login';
 import Navbar from './Navbar';
 import Footer from './Footer';
 import Home from './Home';
+import Reservations from './Reservations';
 
 const App = () => {
   return (
@@ -14,6 +15,7 @@ const App = () => {
           <Switch>
             <Route exact path='/' component={Login} />
             <Route exact path='/home' component={Home} />
+            <Route exact path='/booked' component={Reservations} />
             <Redirect to='/' />
           </Switch>
         </div>
