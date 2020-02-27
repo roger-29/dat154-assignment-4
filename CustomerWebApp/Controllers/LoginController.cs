@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Threading.Tasks;
-using HotelService;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -19,10 +18,10 @@ namespace CustomerWebApp.Controllers
         }
 
         [HttpPost]
-        public User Post(User user)
+        public Users Post(Users user)
         {
             // try to find user with this email in database, return if not create new
-            return new User { UserNr = 123, Email = user.Email, Password = user.Password };
+            return new Users { Usernr = 123, Email = user.Email, Password = user.Password };
         }
 
     }

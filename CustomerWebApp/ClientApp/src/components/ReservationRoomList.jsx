@@ -11,7 +11,7 @@ class ReservationRoomList extends React.Component {
 		return (
 			<ul className='collection'>
 				{this.props.booked.map(room => {
-					return <Room key={room.roomNr} room={room} history={this.props.history} />
+					return <Room key={room.roomnr} room={room} history={this.props.history} />
 				})}
 			</ul>
 		)

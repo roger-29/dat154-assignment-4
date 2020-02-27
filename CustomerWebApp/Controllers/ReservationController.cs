@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using HotelService;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -21,20 +20,20 @@ namespace CustomerWebApp.Controllers
         }
 
         [HttpGet("{id}")]
-        public IEnumerable<Room> Get(int id)
+        public IEnumerable<Rooms> Get(int id)
         {
             // Get all reservations with this userid find all rooms in reservations
-            return new List<Room>
+            return new List<Rooms>
             {
-                new Room { RoomNr = 1, NumberOfBeds = 2, RoomSize = 25, Price = 1000, Available = false}
+                new Rooms { Roomnr = 1, Numberofbeds = 2, Roomsize = 25, Price = 1000, Available = false}
             }.ToArray();
         }
 
         [HttpPost]
-        public void Post(Reservation reservation)
+        public void Post(Reservations reservation)
         {
             // Get all rooms, make this room Avaliable = false
-            Reservation r = new Reservation { RoomNr = reservation.RoomNr, UserNr = reservation.UserNr };
+            Reservations r = new Reservations { Roomnr = reservation.Roomnr, Usernr = reservation.Usernr };
             // Add reservation to database
         }
     }

@@ -14,8 +14,8 @@ const Room = props => {
 			<i className='material-icons circle'>photo</i>
 			<span className='title'>{props.room.price} kr</span>
 			<p>
-				Size: {props.room.roomSize} m²<br/>
-				Number of beds: {props.room.numberOfBeds}
+				Size: {props.room.roomsize} m²<br/>
+				Number of beds: {props.room.numberofbeds}
 				
 			</p>
 			<div className='secondary-content black-text'>

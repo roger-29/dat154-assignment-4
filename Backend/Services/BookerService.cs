@@ -5,7 +5,7 @@ using Microsoft.Extensions.Logging;
 
 namespace HotelService
 {
-	public class BookerService : Booker.BookerBase
+	public class BookerService : Booking.BookingBase
 	{
 		private readonly ILogger<BookerService> _logger;
 		private readonly DatabaseContext db;

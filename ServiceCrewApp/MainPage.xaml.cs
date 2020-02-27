@@ -26,7 +26,6 @@ namespace ServiceCrewApp
         public MainPage()
         {
             this.InitializeComponent();
-            HotelService.Booker.BookerClient.
         }
     }
 }
