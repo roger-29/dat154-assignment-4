@@ -12,8 +12,14 @@ namespace CustomerWebApp.Database
         public DbSet<Users> Users { get; set; }
         public DbSet<Reservations> Reservations { get; set; }
 
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Seed();
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
-            => optionsBuilder.UseNpgsql("Host=data1.hib.no;Database=h180312;Username=h180312;Password=pass");
+            => optionsBuilder.UseNpgsql("Server=data1.hib.no; Port=5432; Database=h571556;UserId=h571556;Password=pass; Integrated Security = true;");
+
     }
 }
 
