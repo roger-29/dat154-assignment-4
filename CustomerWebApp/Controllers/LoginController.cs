@@ -18,10 +18,10 @@ namespace CustomerWebApp.Controllers
         }
 
         [HttpPost]
-        public Users Post(Users user)
+        public User Post(User user)
         {
             // try to find user with this email in database, return if not create new
-            return new Users { Usernr = 123, Email = user.Email, Password = user.Password };
+            return new User { Usernr = 123, Email = user.Email, Password = user.Password };
         }
 
     }

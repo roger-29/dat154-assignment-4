@@ -4,11 +4,11 @@ using System.ComponentModel.DataAnnotations;
 
 namespace CustomerWebApp
 {
-    public partial class Users
+    public partial class User
     {
-        public Users()
+        public User()
         {
-            Reservations = new HashSet<Reservations>();
+            Reservations = new HashSet<Reservation>();
         }
 
         [Key]
@@ -16,6 +16,6 @@ namespace CustomerWebApp
         public string Email { get; set; }
         public string Password { get; set; }
 
-        public virtual ICollection<Reservations> Reservations { get; set; }
+        public virtual ICollection<Reservation> Reservations { get; set; }
     }
 }

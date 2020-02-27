@@ -10,13 +10,13 @@ namespace CustomerWebApp.Database
     {
         public static void Seed(this ModelBuilder modelBuilder)
         {
-            //modelBuilder.Entity<Reservations>().HasData(
+            //modelBuilder.Entity<Reservation>().HasData(
             //  new
             //  {
 
             //  });
 
-            modelBuilder.Entity<Rooms>().HasData(
+            modelBuilder.Entity<Room>().HasData(
              new
              {
                  Roomnr = 1,
@@ -66,7 +66,7 @@ namespace CustomerWebApp.Database
                     Available = true
                 }
             );
-            //modelBuilder.Entity<Users>().HasData(
+            //modelBuilder.Entity<User>().HasData(
             //  new
             //  {
             //  });
