@@ -20,20 +20,20 @@ namespace CustomerWebApp.Controllers
         }
 
         [HttpGet("{id}")]
-        public IEnumerable<Rooms> Get(int id)
+        public IEnumerable<Room> Get(int id)
         {
             // Get all reservations with this userid find all rooms in reservations
-            return new List<Rooms>
+            return new List<Room>
             {
-                new Rooms { Roomnr = 1, Numberofbeds = 2, Roomsize = 25, Price = 1000, Available = false}
+                new Room { Roomnr = 1, Numberofbeds = 2, Roomsize = 25, Price = 1000, Available = false}
             }.ToArray();
         }
 
         [HttpPost]
-        public void Post(Reservations reservation)
+        public void Post(Reservation reservation)
         {
             // Get all rooms, make this room Avaliable = false
-            Reservations r = new Reservations { Roomnr = reservation.Roomnr, Usernr = reservation.Usernr };
+            Reservation r = new Reservation { Roomnr = reservation.Roomnr, Usernr = reservation.Usernr };
             // Add reservation to database
         }
     }

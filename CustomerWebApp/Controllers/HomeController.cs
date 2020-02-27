@@ -25,7 +25,7 @@ namespace CustomerWebApp.Controllers
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Rooms>> Get()
+        public async Task<IEnumerable<Room>> Get()
         {
             // return all rooms with Avaliable = true;
             return await db.Rooms.ToListAsync();

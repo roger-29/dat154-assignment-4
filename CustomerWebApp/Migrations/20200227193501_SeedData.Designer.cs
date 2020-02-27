@@ -10,8 +10,8 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace CustomerWebApp.Migrations
 {
     [DbContext(typeof(DatabaseContext))]
-    [Migration("20200227181732_CreateDatabase")]
-    partial class CreateDatabase
+    [Migration("20200227193501_SeedData")]
+    partial class SeedData
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -21,7 +21,7 @@ namespace CustomerWebApp.Migrations
                 .HasAnnotation("ProductVersion", "3.1.2")
                 .HasAnnotation("Relational:MaxIdentifierLength", 63);
 
-            modelBuilder.Entity("CustomerWebApp.Reservations", b =>
+            modelBuilder.Entity("CustomerWebApp.Reservation", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -49,7 +49,7 @@ namespace CustomerWebApp.Migrations
                     b.ToTable("Reservations");
                 });
 
-            modelBuilder.Entity("CustomerWebApp.Rooms", b =>
+            modelBuilder.Entity("CustomerWebApp.Room", b =>
                 {
                     b.Property<int>("Roomnr")
                         .ValueGeneratedOnAdd()
@@ -123,7 +123,7 @@ namespace CustomerWebApp.Migrations
                         });
                 });
 
-            modelBuilder.Entity("CustomerWebApp.Users", b =>
+            modelBuilder.Entity("CustomerWebApp.User", b =>
                 {
                     b.Property<int>("Usernr")
                         .ValueGeneratedOnAdd()
@@ -141,13 +141,13 @@ namespace CustomerWebApp.Migrations
                     b.ToTable("Users");
                 });
 
-            modelBuilder.Entity("CustomerWebApp.Reservations", b =>
+            modelBuilder.Entity("CustomerWebApp.Reservation", b =>
                 {
-                    b.HasOne("CustomerWebApp.Rooms", "RoomnrNavigation")
+                    b.HasOne("CustomerWebApp.Room", "RoomnrNavigation")
                         .WithMany("Reservations")
                         .HasForeignKey("RoomnrNavigationRoomnr");
 
-                    b.HasOne("CustomerWebApp.Users", "UsernrNavigation")
+                    b.HasOne("CustomerWebApp.User", "UsernrNavigation")
                         .WithMany("Reservations")
                         .HasForeignKey("UsernrNavigationUsernr");
                 });

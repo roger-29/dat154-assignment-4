@@ -8,9 +8,9 @@ namespace CustomerWebApp.Database
 {
     public class DatabaseContext : DbContext
     {
-        public DbSet<Rooms> Rooms { get; set; }
-        public DbSet<Users> Users { get; set; }
-        public DbSet<Reservations> Reservations { get; set; }
+        public DbSet<Room> Rooms { get; set; }
+        public DbSet<User> Users { get; set; }
+        public DbSet<Reservation> Reservations { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
