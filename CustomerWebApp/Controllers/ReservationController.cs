@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using CustomerWebApp.Database;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
@@ -9,13 +10,15 @@ using Microsoft.Extensions.Logging;
 namespace CustomerWebApp.Controllers
 {
     [ApiController]
-    [Route("api/reservation")]
+    [Route("api/[controller]")]
     public class ReservationController : ControllerBase
     {
         private readonly ILogger<ReservationController> _logger;
+        private readonly DatabaseContext db;
 
-        public ReservationController(ILogger<ReservationController> logger)
+        public ReservationController(ILogger<ReservationController> logger, DatabaseContext context)
         {
+            db = context;
             _logger = logger;
         }
 
@@ -23,18 +26,21 @@ namespace CustomerWebApp.Controllers
         public IEnumerable<Room> Get(int id)
         {
             // Get all reservations with this userid find all rooms in reservations
-            return new List<Room>
-            {
-                new Room { Roomnr = 1, Numberofbeds = 2, Roomsize = 25, Price = 1000, Available = false}
-            }.ToArray();
+            List<int?> res = db.Reservations.ToList().Where(r => r.Usernr == id).Select(r => r.Roomnr).ToList();
+            return db.Rooms.ToList().Where(r => res.Contains(r.Roomnr)).ToList();
         }
 
         [HttpPost]
         public void Post(Reservation reservation)
         {
             // Get all rooms, make this room Avaliable = false
-            Reservation r = new Reservation { Roomnr = reservation.Roomnr, Usernr = reservation.Usernr };
-            // Add reservation to database
+            Room r = db.Rooms.ToList().Where(r => r.Roomnr == reservation.Roomnr).First();
+            r.Available = false;
+            db.Rooms.Update(r);
+            db.SaveChanges();
+            Reservation res = new Reservation { Roomnr = reservation.Roomnr, Usernr = reservation.Usernr };
+            db.Reservations.Add(res);
+            db.SaveChanges();
         }
     }
 }

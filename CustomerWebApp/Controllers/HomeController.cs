@@ -12,23 +12,24 @@ using Microsoft.Extensions.Logging;
 namespace CustomerWebApp.Controllers
 {
     [ApiController]
-    [Route("api/home")]
+    [Route("api/[controller]")]
     public class HomeController : ControllerBase
     {
         private readonly ILogger<HomeController> _logger;
         private readonly DatabaseContext db;
 
-        public HomeController(ILogger<HomeController> logger)
+        public HomeController(ILogger<HomeController> logger, DatabaseContext context)
         {
+            db = context;
             _logger = logger;
-            db = new DatabaseContext();
         }
 
         [HttpGet]
-        public async Task<IEnumerable<Room>> Get()
+        public IEnumerable<Room> Get()
         {
             // return all rooms with Avaliable = true;
-            return await db.Rooms.ToListAsync();
+            List<Room> rooms = db.Rooms.ToList().Where(r => r.Available).ToList();
+            return rooms;
         }
     }
 }
