@@ -172,6 +172,12 @@
     <Folder Include="Client\" />
     <Folder Include="Pages\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HotelDataLibrary\HotelDataLibrary.csproj">
+      <Project>{e2428c05-13b8-4d02-b2e9-36ed6aa84e10}</Project>
+      <Name>HotelDataLibrary</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
     <VisualStudioVersion>14.0</VisualStudioVersion>
   </PropertyGroup>
