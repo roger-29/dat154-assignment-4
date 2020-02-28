@@ -26,5 +26,15 @@ namespace FrontDeskApp
         {
             this.InitializeComponent();
         }
+
+        private void mainPivot_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        {
+
+        }
+
+        private void mainNav_ItemInvoked(NavigationView sender, NavigationViewItemInvokedEventArgs args)
+        {
+
+        }
     }
 }

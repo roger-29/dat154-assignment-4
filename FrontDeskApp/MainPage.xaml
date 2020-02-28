@@ -8,15 +8,38 @@
     mc:Ignorable="d"
     Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
 
-    <Pivot x:Name="mainPivot">
-        <PivotItem Header="Rooms">
+    <Grid>
+        <NavigationView 
+            x:Name="mainNav" 
+            ItemInvoked="mainNav_ItemInvoked" 
+            PaneDisplayMode="Top" 
+            IsBackEnabled="False"
+        >
+            <NavigationView.MenuItems>
+                <NavigationViewItem Content="A" x:Name="RoomsNavItem" />
+                <NavigationViewItem Content="B" x:Name="ReservationsNavItem" />
+                <NavigationViewItem Content="C" x:Name="CheckInNavItem" />
+            </NavigationView.MenuItems>
+        </NavigationView>
+
+        <VisualStateManager.VisualStateGroups>
+            <VisualStateGroup>
+                <VisualState>
+                    
+                </VisualState>
+            </VisualStateGroup>
+        </VisualStateManager.VisualStateGroups>
+
+        <!--
+            <NavigationViewItem Header="Rooms">
             <TextBlock Text="Rooms" />
-        </PivotItem>
+        </NavigationViewItem>
         <PivotItem Header="Reservations">
             <TextBlock Text="Reservations" />
         </PivotItem>
         <PivotItem Header="Check Ins and Outs">
             <TextBlock Text="Check Ins and Outs" />
         </PivotItem>
-    </Pivot>
+        -->
+    </Grid>
 </Page>

@@ -15,6 +15,9 @@ using Windows.UI.Xaml.Navigation;
 
 // The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
+using HotelDataLibrary.Data;
+using HotelDataLibrary.Models;
+
 namespace FrontDeskApp.Pages
 {
     /// <summary>
@@ -22,9 +25,17 @@ namespace FrontDeskApp.Pages
     /// </summary>
     public sealed partial class Rooms : Page
     {
+        List<Room> RoomsList;
+
         public Rooms()
         {
             this.InitializeComponent();
+
+            RoomsClient client = new RoomsClient();
+
+            RoomsList = client.GetAllRooms();
+
+            RoomList.ItemsSource = RoomsList;
         }
     }
 }
